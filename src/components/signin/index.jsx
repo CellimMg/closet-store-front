@@ -1,10 +1,13 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { ThreeDots } from 'react-loader-spinner';
+import { ThreeDots } from "react-loader-spinner";
+import { Login } from "./style.js"
+
+import Logo from "../../assets/closet_store.svg"
 
 
-export default function Signin({setUserData}) {
+export default function Signin({ setUserData }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -31,7 +34,8 @@ export default function Signin({setUserData}) {
   }
 
   return (
-    <div>
+    <Login>
+      <img src={Logo} alt="logo" />
       < form onSubmit={login} >
         <input
           type="email"
@@ -49,12 +53,15 @@ export default function Signin({setUserData}) {
 
         <button type="submit">
           {loading ? (
-            <ThreeDots color="#00ffff" height={13} align='center' />
+            <ThreeDots color="#FFFDFD" height={13} align='center' />
           ) : (
             'Entrar'
           )}
         </button>
       </form >
-    </div>
+      <Link to={"/signup"}>
+        <p>Não possui conta?<br></br>Cadastre-se!</p>
+      </Link>
+    </Login>
   );
 }

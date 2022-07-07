@@ -2,26 +2,36 @@ import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { ThreeDots } from 'react-loader-spinner';
+import { Sign_up } from "./style.js"
+
+import Logo from "../../assets/closet_store.svg"
 
 
 export default function Signup() {
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [img, setImg] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
 
   function signup(event) {
     event.preventDefault();
     setLoading(true);
+
+    if (password !== confirmPassword){
+      alert("Senhas digitadas não coincidem.");
+      setLoading(false);
+      return;
+    }
+
     const LINK_API = "http://localhost:5000/signup";
     const request = axios.post(LINK_API, {
       name,
       lastName,
       email,
-      img,
       password
     });
     request.then(response => {
@@ -36,7 +46,8 @@ export default function Signup() {
   }
 
   return (
-    <div>
+    <Sign_up>
+      <img src={Logo} alt="logo" />
       <form onSubmit={signup}>
         <input
           type="text"
@@ -60,27 +71,30 @@ export default function Signup() {
           onChange={(e) => setEmail(e.target.value)} />
 
         <input
-          type="text"
-          disabled={loading ? true : false}
-          placeholder="Imagem de perfil"
-          value={img}
-          onChange={(e) => setImg(e.target.value)} />
-
-        <input
           type="password"
           disabled={loading ? true : false}
           placeholder="Senha"
           value={password}
           onChange={(e) => setPassword(e.target.value)} />
 
+        <input
+          type="password"
+          disabled={loading ? true : false}
+          placeholder="confirme sua senha"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)} />
+
         <button type="submit">
           {loading ? (
-            <ThreeDots color="#00ffff" height={13} align='center' />
+            <ThreeDots color="#FFFDFD" height={13} align='center' />
           ) : (
             'Entrar'
           )}
         </button>
       </form >
-    </div>
+      <Link to={"/signin"}>
+        <p>Já possui conta? Faça login!</p>
+      </Link>
+    </Sign_up>
   );
 }

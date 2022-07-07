@@ -7,7 +7,6 @@ import Signup from "./components/signup";
 
 import UserContext from "./context/UserContext";
 
-
 function App() {
   const [userData, setUserData] = useState({});
 
