@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { ThreeDots } from "react-loader-spinner";
 import { Login } from "./style.js"
@@ -25,6 +25,7 @@ export default function Signin({ setUserData }) {
       const { data } = response;
       setUserData(data);
       console.log(data);
+      navigate("/checkout"); //lembrar de mudar a rota.
     })
     request.catch(err => {
       console.log(err.response);

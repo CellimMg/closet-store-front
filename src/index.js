@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 import Signin from "./components/signin";
 import Signup from "./components/signup";
+import Checkout from "./components/checkout";
 
 import UserContext from "./context/UserContext";
 
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/signin" element={<Signin setUserData={setUserData}/>} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/checkout" element={<Checkout userData={userData}/>} />
         </Routes>
       </BrowserRouter>
     </UserContext.Provider>
