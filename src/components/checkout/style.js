@@ -15,11 +15,12 @@ align-items: center;
 h1{
   font-family: 'Roboto';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 700;
   font-size: 16px;
   line-height: 14px;
   color: #000000;
   padding: 0 0 11px 0px;
+  margin-left: 5px;
 }
 
 button{
@@ -43,11 +44,12 @@ button{
 h2{
   font-family: 'Roboto';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 700;
   font-size: 16px;
   line-height: 14px;
   color: #000000;
   padding: 25px 0 11px 0px;
+  margin-left: 5px;
 }
 `
 
@@ -64,16 +66,17 @@ input{
     border-radius: 19px;
     width: 160px;
     height: 45px;
-}
-
-input::placeholder {
+    padding-left: 17px;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
     line-height: 14px;
     color: #000000;
-    padding-left: 17px;
+}
+
+input::placeholder{
+  color: #000000;
 }
 
 .cep{
@@ -94,16 +97,17 @@ input{
     border-radius: 19px;
     width: 330px;
     height: 45px;
-}
-
-input::placeholder {
+    padding-left: 17px;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
     line-height: 14px;
     color: #000000;
-    padding-left: 17px;
+}
+
+input::placeholder{
+    color: #000000;
 }
 `
 
@@ -119,9 +123,6 @@ export const CardInputs2 = styled.div`
     border-radius: 19px;
     width: 160px;
     height: 45px;
-}
-
-input::placeholder {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
@@ -129,6 +130,10 @@ input::placeholder {
     line-height: 14px;
     color: #000000;
     padding-left: 17px;
+}
+
+input::placeholder{
+    color: #000000;
 }
 
 .cvv{

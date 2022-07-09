@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { ThreeDots } from 'react-loader-spinner';
 import { Sign_up } from "./style.js"
@@ -37,6 +37,8 @@ export default function Signup() {
     request.then(response => {
       const { data } = response;
       console.log(data);
+      alert("Usuário cadastrado com sucesso!")
+      navigate("/");
     })
     request.catch(err => {
       console.log(err.response);

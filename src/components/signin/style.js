@@ -28,10 +28,6 @@ input{
     border-radius: 19px;
     width: 303px;
     height: 45px;
-
-}
-
-input::placeholder {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
@@ -39,6 +35,10 @@ input::placeholder {
     line-height: 14px;
     color: #000000;
     padding-left: 17px;
+}
+
+input::placeholder{
+    color: #000000;
 }
 
 button{

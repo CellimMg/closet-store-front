@@ -15,6 +15,7 @@ export default function Checkout({ userData }) {
   const [CVV, setCVV] = useState("");
   const [expirationDate, setExpirationDate] = useState("");
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   let TOKEN = userData.token;
   const config = {
@@ -38,6 +39,7 @@ export default function Checkout({ userData }) {
     request.then(response => {
       const { data } = response;
       console.log(data);
+      navigate("/success");
     })
     request.catch(err => {
       console.log(err.response);
