@@ -25,7 +25,7 @@ export default function Signin({ setUserData }) {
       const { data } = response;
       setUserData(data);
       console.log(data);
-      navigate("/checkout"); //lembrar de mudar a rota.
+      navigate("/checkout");
     })
     request.catch(err => {
       console.log(err.response);

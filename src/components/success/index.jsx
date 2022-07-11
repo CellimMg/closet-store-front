@@ -4,7 +4,8 @@ import { Header, Body, Description } from "./style.js"
 import Logo from "../../assets/closet_store.svg"
 import Home from "../../assets/icons8-home.svg"
 
-export default function Success() {
+export default function Success({cart}) {
+
   return (
     <>
       <Header>
@@ -20,12 +21,19 @@ export default function Success() {
 
         <Description>
           <h2>Itens:</h2>
-          <h3>Blusa azul (1)</h3>
-          <h3>Calça preta (1)</h3>
+          <h3>{cart.name} (1)</h3>
           <h2>Total:</h2>
-          <h3>R$ 500</h3>
+          <h3>R$ {cart.price}</h3>
         </Description>
       </Body>
     </>
   );
 }
+
+/* 
+
+name: "Tênis Adidas"
+price: 159.9
+_id: "62cba262932c06e752bd7c64"
+
+*/

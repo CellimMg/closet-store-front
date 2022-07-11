@@ -27,7 +27,7 @@ export default function Checkout({ userData }) {
   function finalizeOrder(event) {
     event.preventDefault();
     setLoading(true);
-    const LINK_API = "http://localhost:5000/checkout";
+    const LINK_API = "https://closet-store.herokuapp.com/checkout";
     const request = axios.post(LINK_API, {
       CEP,
       complement,
