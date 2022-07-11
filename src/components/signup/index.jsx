@@ -1,5 +1,5 @@
-import { Link, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 import axios from "axios";
 import { ThreeDots } from 'react-loader-spinner';
 import { Sign_up } from "./style.js"
@@ -14,20 +14,19 @@ export default function Signup() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
 
 
   function signup(event) {
     event.preventDefault();
     setLoading(true);
 
-    if (password !== confirmPassword){
+    if (password !== confirmPassword) {
       alert("Senhas digitadas não coincidem.");
       setLoading(false);
       return;
     }
 
-    const LINK_API = "http://localhost:5000/signup";
+    const LINK_API = "https://closet-store.herokuapp.com/signup";
     const request = axios.post(LINK_API, {
       name,
       lastName,
