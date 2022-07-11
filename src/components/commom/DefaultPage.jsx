@@ -5,8 +5,10 @@ import IconSignout from "../../assets/log-out-outline.svg";
 import UserContext from "../../context/UserContext.js";
 import { useContext } from "react";
 import IconCart from "../../assets/cart-outline.svg";
+import { Link } from "react-router-dom"
 
 export default function DefaultPage({ children }) {
+
 
     const { userData, setUserData } = useContext(UserContext);
 
@@ -18,7 +20,9 @@ export default function DefaultPage({ children }) {
             <AppBar>
                 <div style={{ width: "25px" }}></div>
                 <LogoImg src={Logo} />
-                <IconImg src={userData.token ? IconSignin : IconSignout} />
+                <Link onClick={() => setUserData({})} to={"/signin"}>
+                    <IconImg src={userData.token ? IconSignout : IconSignin} />
+                </Link>
             </AppBar>
             <PageBody>{children}</PageBody>
         </Page>

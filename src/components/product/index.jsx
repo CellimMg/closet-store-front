@@ -1,16 +1,23 @@
 import { useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import ProductContext from "../../context/ProductContext";
+import UserContext from "../../context/UserContext";
 import DefaultPage from "../commom/DefaultPage";
 import { ImageProduct, Title, Sale, Description, Footer, Left, Button, Right } from "./style.js";
 
 export default function Product() {
 
     const { id } = useParams();
-    const { products, setProducts } = useContext(ProductContext);
+    const { products } = useContext(ProductContext);
+    const { userData, setUserData } = useContext(UserContext);
+    const navigate = useNavigate();
 
-    console.log(products);
-    console.log(id);
+    function addToUserAndNavigate(id) {
+
+        const cart = [];
+        setUserData({ ...userData, cart: [...cart, id] });
+        navigate("/cart");
+    }
 
     return (
         <DefaultPage>
@@ -21,7 +28,7 @@ export default function Product() {
             <Description>{products.filter(product => product._id === id)[0].description}</Description>
             <Footer>
                 <Left>R$ {products.filter(product => product._id === id)[0].price}</Left>
-                <Right><Button>Adicionar ao carrinho</Button></Right>
+                <Right><Button onClick={() => addToUserAndNavigate(id)}>Adicionar ao carrinho</Button></Right>
             </Footer>
 
         </DefaultPage>
