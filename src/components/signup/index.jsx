@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import { ThreeDots } from 'react-loader-spinner';
@@ -14,7 +14,7 @@ export default function Signup() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
-
+  const navigate = useNavigate();
 
   function signup(event) {
     event.preventDefault();
@@ -36,8 +36,8 @@ export default function Signup() {
     request.then(response => {
       const { data } = response;
       console.log(data);
-      alert("Usuário cadastrado com sucesso!")
-      navigate("/");
+      alert("Usuário cadastrado com sucesso!");
+      navigate("/signin");
     })
     request.catch(err => {
       console.log(err.response);
