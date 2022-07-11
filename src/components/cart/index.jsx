@@ -27,13 +27,16 @@ export default function Cart() {
     }
 
     function onTap(index){
-        userData.cart.splice(index, 1);
+        setUserData([...userData.cart.splice(index, 1)]);
         setProdutos([...produtos.splice(index, 1)]);
     }
 
     useEffect(() => {
         userData.cart.forEach((value, index, array)=>{
-            setProdutos([...produtos, products.filter(product => product._id === value)[0]]);
+            const newArr = [...produtos];
+            newArr.push(products.filter(product => product._id === value)[0]);
+            setProdutos([...newArr]);
+            
         });
     }, []);
 
