@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import { ThreeDots } from "react-loader-spinner";
@@ -11,6 +11,7 @@ export default function Signin({ setUserData }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   function login(event) {
     event.preventDefault();
@@ -24,7 +25,7 @@ export default function Signin({ setUserData }) {
       const { data } = response;
       setUserData(data);
       console.log(data);
-      navigate("/checkout"); //lembrar de mudar a rota.
+      navigate("/checkout");
     })
     request.catch(err => {
       console.log(err.response);
