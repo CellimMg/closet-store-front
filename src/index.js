@@ -2,8 +2,6 @@ import ReactDOM from "react-dom";
 import GlobalStyle from "./globalStyle";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useState } from 'react';
-import Signin from "./components/signin";
-import Signup from "./components/signup";
 
 import UserContext from "./context/UserContext.js";
 import ProductContext from "./context/ProductContext.js";
