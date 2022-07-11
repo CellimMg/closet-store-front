@@ -29,11 +29,3 @@ export default function Success({cart}) {
     </>
   );
 }
-
-/* 
-
-name: "Tênis Adidas"
-price: 159.9
-_id: "62cba262932c06e752bd7c64"
-
-*/
