@@ -36,6 +36,8 @@ export default function Signup() {
     request.then(response => {
       const { data } = response;
       console.log(data);
+      alert("Usuário cadastrado com sucesso!")
+      navigate("/");
     })
     request.catch(err => {
       console.log(err.response);
