@@ -1,16 +1,21 @@
-import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
 import axios from "axios";
 import { ThreeDots } from "react-loader-spinner";
 import { Login } from "./style.js"
+import { useNavigate } from "react-router-dom";
 import Logo from "../../assets/closet_store.svg"
+import UserContext from "../../context/UserContext.js";
 
 
 export default function Signin({ setUserData }) {
-  const navigate = useNavigate();
+
+  const { userData } = useContext(UserContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
 
   function login(event) {
     event.preventDefault();
@@ -22,8 +27,9 @@ export default function Signin({ setUserData }) {
     });
     request.then(response => {
       const { data } = response;
-      setUserData(data);
-      navigate("/products");
+      setUserData({ ...data, cart: [...userData.cart] });
+      console.log(data);
+      navigate("/products"); //lembrar de mudar a rota.
     })
     request.catch(err => {
       console.log(err.response);
