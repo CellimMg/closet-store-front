@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import { ThreeDots } from "react-loader-spinner";
@@ -16,7 +16,7 @@ export default function Checkout({ userData }) {
   const [expirationDate, setExpirationDate] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-
+  const itemList = [...userData.cart];
   let TOKEN = userData.token;
   const config = {
     headers: {
@@ -34,11 +34,11 @@ export default function Checkout({ userData }) {
       holderName,
       creditCardNumber,
       CVV,
-      expirationDate
+      expirationDate,
+      itemList
     }, config);
     request.then(response => {
       const { data } = response;
-      console.log(data);
       navigate("/success");
     })
     request.catch(err => {

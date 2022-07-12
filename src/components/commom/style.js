@@ -13,7 +13,7 @@ export const PageBody = styledComponent.div`
     width: 100%;
     height: calc(100% - 84px);
     background-color: white;
-    padding: 0px 0px 30px 0px;
+    padding: 0px 0px 70px 0px;
     overflow-y: scroll;
 `;
 
