@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import ProductContext from "../../context/ProductContext";
 import UserContext from "../../context/UserContext";
 import DefaultPage from "../commom/DefaultPage";
 import { ImageProduct, Title, Sale, Description, Footer, Left, Button, Right } from "./style.js";
 
-export default function Product() {
+export default function Product({setCart}) {
 
     const { id } = useParams();
     const { products } = useContext(ProductContext);
@@ -26,6 +26,12 @@ export default function Product() {
     }
 
 
+    function checkout(){
+        setCart(products.filter(product => product._id === id)[0]);
+        alert("Faça um login ou cadastre-se para comprar esse item!");
+        navigate("/signin");
+    }
+
     return (
         <DefaultPage back={true}>
 
@@ -36,6 +42,7 @@ export default function Product() {
             <Footer>
                 <Left>R$ {products.filter(product => product._id === id)[0].price}</Left>
                 <Right><Button onClick={() => addToCart()}>Adicionar ao carrinho</Button></Right>
+
             </Footer>
 
         </DefaultPage>

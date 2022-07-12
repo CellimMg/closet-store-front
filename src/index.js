@@ -17,6 +17,7 @@ import Cart from "./components/cart";
 function App() {
   const [userData, setUserData] = useState({ cart: [] });
   const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState([]);
 
   return (
     <>

@@ -37,6 +37,7 @@ export default function Signup() {
       const { data } = response;
       console.log(data);
       alert("Usuário cadastrado com sucesso!");
+
       navigate("/signin");
     })
     request.catch(err => {
